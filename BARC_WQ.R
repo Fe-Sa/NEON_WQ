@@ -97,6 +97,7 @@ barcWQ.da1$month <- as.character(barcWQ.da1$month)
 ggplot(data = barcWQ.da) +
   geom_smooth(mapping= aes(x = barcWQ.da$week, y = barcWQ.da$specificConductance, linetype = barcWQ.da$month)) 
 
+#added this as a test
 
 
 
