@@ -58,6 +58,7 @@ barcWQ.da[,4:10] <- round(barcWQ.da[,4:10],digits = 1)
 
 # Linearly Interpolate missing values with zoo package
 barcWQ.da1<-na.approx(barcWQ.da)
+barcWQ.da1 <- as.data.frame(barcWQ.da1)
 
 # daily Max
 barcWQ <- barcWQ[-1] # remove StartdateTime to run max
@@ -82,3 +83,18 @@ barcWQ.mA<- barcWQ.da %>%
 
 barcWQ.mA <- barcWQ.mA[-c(3,4,12)]
 barcWQ.mA[,3:9] <- round(barcWQ.mA[,3:9],digits = 1)
+
+str(barcWQ.mA)
+
+# Plots of WQ - meh, needs a lot of work
+
+barcWQ.da$month <- as.factor(barcWQ.da$month) 
+
+barcWQ.da1$month <- as.character(barcWQ.da1$month)
+
+ggplot(data = barcWQ.da) +
+  geom_smooth(mapping= aes(x = barcWQ.da$julianD, y = barcWQ.da$specificConductance)) +
+  facet_grid(~barcWQ.da$month)
+
+
+              
