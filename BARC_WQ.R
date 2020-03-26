@@ -30,6 +30,8 @@ waq_instantaneous$startDateTime <- format(waq_instantaneous$startDateTime, tz = 
 head(waq_instantaneous$startDateTime)
 
 # Ask about the depth column
+table(waq_instantaneous$sensorDepth)
+
 
 # Remove unwanted columns
 barcWQ <- BARC.WQ$waq_instantaneous[-c(1,2,3,4,6,7,8,9,11,12,14,15,17,18,20,21,23,24,26,27,29,30,31,32)]
@@ -94,6 +96,7 @@ barcWQ.da1$month <- as.character(barcWQ.da1$month)
 
 ggplot(data = barcWQ.da) +
   geom_smooth(mapping= aes(x = barcWQ.da$week, y = barcWQ.da$specificConductance, linetype = barcWQ.da$month)) 
+
 
 
 
