@@ -93,8 +93,9 @@ barcWQ.da$month <- as.factor(barcWQ.da$month)
 barcWQ.da1$month <- as.character(barcWQ.da1$month)
 
 ggplot(data = barcWQ.da) +
-  geom_smooth(mapping= aes(x = barcWQ.da$julianD, y = barcWQ.da$specificConductance)) +
-  facet_grid(~barcWQ.da$month)
+  geom_smooth(mapping= aes(x = barcWQ.da$week, y = barcWQ.da$specificConductance, linetype = barcWQ.da$month)) 
+
+
 
 
               
